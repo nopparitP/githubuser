@@ -1,0 +1,10 @@
+# Xcode build files
+DerivedData/
+build/
+Builds/
+
+####
+# CocoaPods
+Pods/
+!Podfile
+!Podfile.lock
