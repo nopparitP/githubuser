@@ -16,7 +16,7 @@ enum FetchType {
   case loadmore
 }
 
-struct GithubUser: Codable {
+public struct GithubUser: Codable {
     let login: String
     let avatarURL: String
     let htmlURL: String
@@ -33,7 +33,7 @@ struct GithubUser: Codable {
         case isFavourite
     }
   
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.login = try container.decodeIfPresent(String.self, forKey: .login) ?? ""
         self.avatarURL = try container.decodeIfPresent(String.self, forKey: .avatarURL) ?? ""
@@ -41,6 +41,22 @@ struct GithubUser: Codable {
         self.type = try container.decodeIfPresent(String.self, forKey: .type) ?? ""
         self.siteAdmin = try container.decodeIfPresent(Bool.self, forKey: .siteAdmin) ?? false
         self.isFavourite = try container.decodeIfPresent(Bool.self, forKey: .isFavourite) ?? false
+    }
+  
+    public init(
+       login: String,
+       avatarURL: String,
+       htmlURL: String,
+       type: String,
+       siteAdmin: Bool,
+       isFavourite: Bool
+    ) {
+      self.login = login
+      self.avatarURL = avatarURL
+      self.htmlURL = htmlURL
+      self.type = type
+      self.siteAdmin = siteAdmin
+      self.isFavourite = isFavourite
     }
 }
 

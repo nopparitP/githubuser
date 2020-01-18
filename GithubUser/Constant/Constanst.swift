@@ -17,6 +17,6 @@ enum Image: String {
 }
 
 enum Credential: String {
-  case username = ""
-  case token = ""
+  case username = "Your github username"
+  case token = "Your github token"
 }

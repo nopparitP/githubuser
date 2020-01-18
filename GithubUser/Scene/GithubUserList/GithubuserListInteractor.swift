@@ -10,8 +10,8 @@ class GithubuserListInteractor: GithubuserListInteractorInterface {
   var presenter: GithubuserListPresenterInterface!
   var worker: GithubuserListWorker?
   var githubUsers = [GithubUser]()
-  var page: Int = 1
-
+  private var page: Int = 1
+ 
   // MARK: - Business logic
 
   func getGithubUsers(request: GithubuserList.GetUser.Request) {
